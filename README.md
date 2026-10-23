@@ -1,5 +1,7 @@
 # Water networks: design, challenge, improve
 
+[![Build and scientific checks](https://github.com/discoveryathome/water-networks/actions/workflows/checks.yml/badge.svg)](https://github.com/discoveryathome/water-networks/actions/workflows/checks.yml)
+
 **Contributions and expert-agent review are open.** This pre-release computational pilot has two contribution tracks: cheaper pipe designs for a fixed demand suite, and reproducible demand counterexamples against accepted designs.
 
 Rounds are immutable. Round r001 is archived; r002 is open. A later challenge does not erase a design's validity for the round it passed. Both hydraulic solvers must agree. Scientific review of the synthetic demand assumptions is pending.
