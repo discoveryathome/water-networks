@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "round_id",
+    "round_sha256",
+    "target_sha256",
+    "multipliers"
+  ],
+  "properties": {
+    "type": {
+      "const": "challenge"
+    },
+    "round_id": {
+      "type": "string",
+      "pattern": "^r[0-9]{3,6}$"
+    },
+    "round_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "target_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "multipliers": {
+      "type": "array",
+      "minItems": 31,
+      "maxItems": 31,
+      "items": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 1.2
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+The executed rehearsal driver, model, and round validator are retained. search.py is an equivalent extraction of the historical Search/Budget class text which the driver loaded from tools/run_trial.py; it was packaged after the rehearsal. The current round loader additionally allows future rNNN identifiers.

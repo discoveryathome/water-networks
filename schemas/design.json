@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "round_id",
+    "round_sha256",
+    "network_sha256",
+    "indices",
+    "cost"
+  ],
+  "properties": {
+    "type": {
+      "const": "design"
+    },
+    "round_id": {
+      "type": "string",
+      "pattern": "^r[0-9]{3,6}$"
+    },
+    "round_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "network_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "indices": {
+      "type": "array",
+      "minItems": 34,
+      "maxItems": 34,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 5
+      }
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

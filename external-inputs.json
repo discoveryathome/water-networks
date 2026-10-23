@@ -1,0 +1,42 @@
+{
+  "schema": "external-inputs/v1",
+  "source_archive_commit": "cb8b46ee0b08149170a34fe72ef0c280b2d5a003",
+  "downloads": [
+    {
+      "path": "data/hanoi-original.inp",
+      "url": "https://www.exeter.ac.uk/v8media/universityofexeter/emps/research/cws/downloads/hanoi.inp",
+      "sha256": "2d3ba8ada3cd566a7a7fa515ee55931f9bd7576fb52fad6094c70cc7bc6b77fe"
+    }
+  ],
+  "derived": [
+    {
+      "path": "data/hanoi-design.inp",
+      "source": "data/hanoi-original.inp",
+      "sha256": "a0146bc3913110b92d7eee335b4ca36ee3c49841e4efecb744027ff750dbd6fe",
+      "recipe": "hanoi-design",
+      "frozen_comment_header": [
+        "; Filename: /Users/colkitt/discover-work/incubatedPilots/exploratory-pilots-20261023/water-networks/data/hanoi-original.inp\n",
+        "; WNTR: 1.5.0\n",
+        "; Created: 2026-10-23 02:30:03\n"
+      ]
+    }
+  ],
+  "omitted_archival_assets": {
+    "data/published-pareto.txt": {
+      "sha256": "74d47c155b416b749cfd74b389c0f09e2ed513755c22e742a02ba2a47f79cddd",
+      "reason": "External reference snapshot omitted from public distribution; not used by candidate validators or tests."
+    },
+    "research/exeter-pareto.html": {
+      "sha256": "4572a3bcfe0d274ba56363a194e6bed2f2ead779187b0a754b101af515915f42",
+      "reason": "External reference snapshot omitted from public distribution; not used by candidate validators or tests."
+    },
+    "research/sop-wdn.pdf": {
+      "sha256": "ea108f82b31bf6a16ee9f65c5ec6b25f85c16f627277422ca74dfd69122d7cc1",
+      "reason": "External reference snapshot omitted from public distribution; not used by candidate validators or tests."
+    },
+    "research/sop-wdn.txt": {
+      "sha256": "9133ed3c1ba87bbb927982d96b357d1790afbd56e6eae97a4554ca24edf4dbbb",
+      "reason": "External reference snapshot omitted from public distribution; not used by candidate validators or tests."
+    }
+  }
+}

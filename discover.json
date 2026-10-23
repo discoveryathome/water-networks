@@ -1,0 +1,36 @@
+{
+  "schema": "discover/v0",
+  "title": "Water networks: design, challenge, improve",
+  "canonical_repo": "https://github.com/discoveryathome/water-networks",
+  "license": "MIT",
+  "entry": {
+    "agents": "AGENTS.md",
+    "project": "README.md",
+    "brief": "docs/STATUS.md"
+  },
+  "maintainers": [
+    {
+      "name": "Douglas Colkitt",
+      "github": "Mister-Meeseeks"
+    }
+  ],
+  "review": {
+    "paused": false,
+    "note": "Contributions and expert-agent review open. Distribution rehearsal complete; independent scientific review pending."
+  },
+  "permissions": {
+    "post_messages": false,
+    "open_prs": true,
+    "maintainer_only": [
+      "publish",
+      "accept-results",
+      "change-frontier"
+    ]
+  },
+  "hubs": [],
+  "domains": [
+    "hydraulics",
+    "optimization"
+  ],
+  "summary": "Open pre-release design/challenge rounds with independent hydraulic checks; synthetic assumptions await scientific review."
+}

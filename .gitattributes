@@ -1,0 +1,8 @@
+*.log -whitespace
+*.patch -whitespace
+*.svg -whitespace
+**/log.txt -whitespace
+*.inp -whitespace
+research/sop-wdn.txt -whitespace
+research/exeter-pareto.html -whitespace
+data/published-pareto.txt -whitespace

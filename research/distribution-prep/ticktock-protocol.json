@@ -1,0 +1,9 @@
+{
+  "envelope": "each node1.0..1.2; demand-weighted total<=1.105; synthetic,not calibrated",
+  "round1": "original four-scenario suite, previous baseline and cheaper design registered immutably",
+  "challenge": "512fixed random envelope-feasible samples at seed88173; select up to3largest verified failures separated by L-infinity>=.02",
+  "round2": "freeze original suite plus selected challenges; greedy repair/descent then fixed4000evaluation perturb-repair at seeds1301,1453; keep separately initialized greedy control",
+  "fresh_evaluation": "128new samples at seed20261024 evaluated only after all designs frozen; all exposed prior samples remain development evidence",
+  "stop": "one cycle; no selection feedback from fresh evaluation",
+  "acceptance": "both hydraulic solvers; no global robustness or Pareto-dominance assumption"
+}

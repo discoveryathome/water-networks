@@ -1,0 +1,15 @@
+{
+  "network_url": "https://www.exeter.ac.uk/v8media/universityofexeter/emps/research/cws/downloads/hanoi.inp",
+  "definition_url": "https://www.exeter.ac.uk/research/centres/cws/resources/benchmarks/",
+  "objective_check": "source/problemdef.c HAN section from Exeter source.zip; observed1.1D^1.5L",
+  "reference": "https://doi.org/10.3390/w14060851 Table8",
+  "wntr": "https://usepa.github.io/WNTR/hydraulics.html",
+  "data_rights": "Exeter offers files for research; explicit redistribution license not established. Local use only pending rights review. MIT pilot license does not cover inputs or published artifacts.",
+  "sha256": {
+    "data/hanoi-original.inp": "2d3ba8ada3cd566a7a7fa515ee55931f9bd7576fb52fad6094c70cc7bc6b77fe",
+    "data/hanoi-design.inp": "a0146bc3913110b92d7eee335b4ca36ee3c49841e4efecb744027ff750dbd6fe",
+    "data/published-pareto.txt": "74d47c155b416b749cfd74b389c0f09e2ed513755c22e742a02ba2a47f79cddd",
+    "vendor/exeter-source.zip": "3034f553b1698267c2d4daae7e07caa5abc778f301eacbb7e3b12eb02f74e3c7",
+    "research/sop-wdn.pdf": "ea108f82b31bf6a16ee9f65c5ec6b25f85c16f627277422ca74dfd69122d7cc1"
+  }
+}

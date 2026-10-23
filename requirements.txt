@@ -1,0 +1,4 @@
+wntr==1.5.0
+scipy==1.18.1
+pytest==9.1.1
+matplotlib==3.11.2

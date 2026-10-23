@@ -1,0 +1,8 @@
+{
+  "verified_search_execution": true,
+  "type": "challenge",
+  "found": false,
+  "budget": 128,
+  "note": "No verified counterexample is not a robustness proof",
+  "seconds": 0.10251720796804875
+}

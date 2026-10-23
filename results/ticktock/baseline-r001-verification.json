@@ -1,0 +1,41 @@
+{
+  "verified": true,
+  "type": "design",
+  "round_id": "r001",
+  "cost": 7588555.757556816,
+  "checks": [
+    {
+      "scenario": "nominal",
+      "epanet_minimum_m": 42.99916264392565,
+      "independent_minimum_m": 42.999626844705794,
+      "solver_difference_m": 0.0004767988852591998,
+      "mass_residual": 8.881784197001252e-16,
+      "headloss_residual": 6.737144622803726e-05
+    },
+    {
+      "scenario": "uniform_110",
+      "epanet_minimum_m": 31.995055836701372,
+      "independent_minimum_m": 31.995628842748975,
+      "solver_difference_m": 0.000585947522040442,
+      "mass_residual": 2.220446049250313e-16,
+      "headloss_residual": 7.410859085155153e-05
+    },
+    {
+      "scenario": "zone_a",
+      "epanet_minimum_m": 30.0060119349836,
+      "independent_minimum_m": 30.0065982663314,
+      "solver_difference_m": 0.0005863313478009502,
+      "mass_residual": 2.220446049250313e-16,
+      "headloss_residual": 7.364176508417586e-05
+    },
+    {
+      "scenario": "zone_b",
+      "epanet_minimum_m": 30.01245565209283,
+      "independent_minimum_m": 30.013064238036957,
+      "solver_difference_m": 0.0006085859441284924,
+      "mass_residual": 4.440892098500626e-16,
+      "headloss_residual": 7.457541662603262e-05
+    }
+  ],
+  "claim": "Feasible for this fixed round only; no universal robustness claim"
+}

@@ -1,0 +1,65 @@
+{
+  "verified": true,
+  "type": "design",
+  "round_id": "r002",
+  "cost": 7490876.732212818,
+  "checks": [
+    {
+      "scenario": "nominal",
+      "epanet_minimum_m": 42.96662164045846,
+      "independent_minimum_m": 42.96708729788722,
+      "solver_difference_m": 0.00048173710046484075,
+      "mass_residual": 2.220446049250313e-16,
+      "headloss_residual": 6.737144624935354e-05
+    },
+    {
+      "scenario": "uniform_110",
+      "epanet_minimum_m": 31.956232713499197,
+      "independent_minimum_m": 31.956807382659093,
+      "solver_difference_m": 0.0005915076637919015,
+      "mass_residual": 1.1102230246251565e-16,
+      "headloss_residual": 7.410859085155153e-05
+    },
+    {
+      "scenario": "zone_a",
+      "epanet_minimum_m": 30.030700241476495,
+      "independent_minimum_m": 30.031286296797386,
+      "solver_difference_m": 0.0005860553208911767,
+      "mass_residual": 2.220446049250313e-16,
+      "headloss_residual": 7.364176508417586e-05
+    },
+    {
+      "scenario": "zone_b",
+      "epanet_minimum_m": 30.04714570301245,
+      "independent_minimum_m": 30.047757341980997,
+      "solver_difference_m": 0.0006116389685466572,
+      "mass_residual": 8.881784197001252e-16,
+      "headloss_residual": 7.457541663313805e-05
+    },
+    {
+      "scenario": "challenge-01",
+      "epanet_minimum_m": 30.09962746383722,
+      "independent_minimum_m": 30.100218119842538,
+      "solver_difference_m": 0.0006059655344081705,
+      "mass_residual": 4.440892098500626e-16,
+      "headloss_residual": 7.459406185716944e-05
+    },
+    {
+      "scenario": "challenge-02",
+      "epanet_minimum_m": 30.09748289553834,
+      "independent_minimum_m": 30.09807393975314,
+      "solver_difference_m": 0.0006067152080895255,
+      "mass_residual": 8.881784197001252e-16,
+      "headloss_residual": 7.473332689045264e-05
+    },
+    {
+      "scenario": "challenge-03",
+      "epanet_minimum_m": 30.206517555929906,
+      "independent_minimum_m": 30.20710802080348,
+      "solver_difference_m": 0.0006013790705878819,
+      "mass_residual": 2.220446049250313e-16,
+      "headloss_residual": 7.472578106870742e-05
+    }
+  ],
+  "claim": "Feasible for this fixed round only; no universal robustness claim"
+}

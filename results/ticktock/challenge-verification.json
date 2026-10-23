@@ -1,0 +1,41 @@
+[
+  {
+    "verified": true,
+    "type": "challenge",
+    "round_id": "r001",
+    "target_sha256": "8794d1becb9b1fb8ff9957a598acac459249c01d62d720d5121feaa4b4a1770b",
+    "confirmed_shortfall_m": 0.6048767819822451,
+    "weighted_total_multiplier": 1.1047518046510394,
+    "nearest_scenario_linf": 0.09799975909802483,
+    "epanet_minimum_m": 29.39452441464674,
+    "independent_minimum_m": 29.395123218017755,
+    "solver_difference_m": 0.0006095223277355899,
+    "claim": "Counterexample inside the declared synthetic envelope; prior round design validity is unchanged"
+  },
+  {
+    "verified": true,
+    "type": "challenge",
+    "round_id": "r001",
+    "target_sha256": "8794d1becb9b1fb8ff9957a598acac459249c01d62d720d5121feaa4b4a1770b",
+    "confirmed_shortfall_m": 0.5155498070412214,
+    "weighted_total_multiplier": 1.105,
+    "nearest_scenario_linf": 0.08646159670623899,
+    "epanet_minimum_m": 29.483851658613826,
+    "independent_minimum_m": 29.48445019295878,
+    "solver_difference_m": 0.000610988734052853,
+    "claim": "Counterexample inside the declared synthetic envelope; prior round design validity is unchanged"
+  },
+  {
+    "verified": true,
+    "type": "challenge",
+    "round_id": "r001",
+    "target_sha256": "8794d1becb9b1fb8ff9957a598acac459249c01d62d720d5121feaa4b4a1770b",
+    "confirmed_shortfall_m": 0.40705180558986953,
+    "weighted_total_multiplier": 1.1045292974681749,
+    "nearest_scenario_linf": 0.0980123206500445,
+    "epanet_minimum_m": 29.592350457207566,
+    "independent_minimum_m": 29.59294819441013,
+    "solver_difference_m": 0.0006074318987252525,
+    "claim": "Counterexample inside the declared synthetic envelope; prior round design validity is unchanged"
+  }
+]

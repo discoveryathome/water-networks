@@ -1,0 +1,16 @@
+{
+  "results/initial/nominal-419-multistart.json": "13c4f1a0b30f7837680061bbb53409a31dbf3c0c6ef9a68dabfbc4c5b40a01a2",
+  "results/initial/nominal-419-perturb_repair.json": "1c4925517d63dcf8fcb8a3d74416589d325c325328b048735d8c9bab9773d5e6",
+  "results/initial/nominal-503-multistart.json": "e5cc829e2168028807dea3c2461d8149d4c84e391556c47ab952adbfacb79203",
+  "results/initial/nominal-503-perturb_repair.json": "49fbda8029c35fb434cd27db926ca1de99d7559889ae0bd1fdc356c863ac8088",
+  "results/initial/nominal-719-multistart.json": "9932b2f700b7279232ade8b563f2060223cda94eb1d547c9104c8129ea65acc0",
+  "results/initial/nominal-719-perturb_repair.json": "1044bdb3b25c97fd2e38d10adcba799014e0f943c235cb6892c8832f9bf2c2c7",
+  "results/initial/stress-419-multistart.json": "b48c8925edffb30855ee03b280406a273134c6598bef9ca409362fa3beb54e2b",
+  "results/initial/stress-419-perturb_repair.json": "e38e1132cab8b66bc561649ec9252c07373ea9c307042ace040ae6dc2937c81a",
+  "results/initial/stress-503-multistart.json": "f9623a66b4586dca53fe55416f02ea262268f8ed2caebd40cbd77fdbd099a5e6",
+  "results/initial/stress-503-perturb_repair.json": "966ece722d595e915ab08117ec5ee750cd458ddf970d10322b01031124343810",
+  "results/initial/stress-719-multistart.json": "ca862a24ad948084afa89a79605f9e4b94b4ff26c9fceefaa43cb4c308f6a775",
+  "results/initial/stress-719-perturb_repair.json": "da2da8fa5131e14bf0cf3f6e205b7ee32add0c88f6a002abb2301e501e553e92",
+  "results/initial/nominal-baseline.json": "52e37161c9be29ac7813dae3d52cb8c9eef40562e4992ad6497fbf0e669431b6",
+  "results/initial/stress-baseline.json": "a4188eb9a2f6538c80093f3c4f00a9f61ab50ff68fefee43cf84458a2cd06b18"
+}

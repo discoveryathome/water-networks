@@ -1,0 +1,50 @@
+{
+  "challenges": 3,
+  "fresh": [
+    {
+      "design": "r001-baseline",
+      "round_id": "r001",
+      "cost": 7588555.757556816,
+      "passed": 128,
+      "total": 128,
+      "worst_pressure_m": 30.112019217298847,
+      "design_sha256": "9117636b7c3712af44abc05cca1083ecb0452b8d0d913ff01224a8f630afb6d2"
+    },
+    {
+      "design": "r001-cheaper",
+      "round_id": "r001",
+      "cost": 7530467.0018690135,
+      "passed": 125,
+      "total": 128,
+      "worst_pressure_m": 29.675809734584064,
+      "design_sha256": "8794d1becb9b1fb8ff9957a598acac459249c01d62d720d5121feaa4b4a1770b"
+    },
+    {
+      "design": "r002-control",
+      "round_id": "r002",
+      "cost": 7490876.732212818,
+      "passed": 128,
+      "total": 128,
+      "worst_pressure_m": 30.122302382061065,
+      "design_sha256": "58ef729299945a3526c0a90e4e32def3095d60d91b3451a0e962613978ff412f"
+    },
+    {
+      "design": "r002-1301",
+      "round_id": "r002",
+      "cost": 7478071.303860535,
+      "passed": 128,
+      "total": 128,
+      "worst_pressure_m": 30.12871747182763,
+      "design_sha256": "138e5a9ac6ccdabf2231e80e7d486770f3b5113a674e1cd4345eeb454be8d749"
+    },
+    {
+      "design": "r002-1453",
+      "round_id": "r002",
+      "cost": 7478071.303860535,
+      "passed": 128,
+      "total": 128,
+      "worst_pressure_m": 30.12871747182763,
+      "design_sha256": "b3040d9248ef558c89b77d1ae622f1ed732c650d00aadefbb8da3acb2fbed1fa"
+    }
+  ]
+}

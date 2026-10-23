@@ -1,0 +1,14 @@
+{
+  "current_design_round": "r002",
+  "rounds": {
+    "r001": {
+      "digest": "1afac124e8414646e4fa9bc34fd4999e45ba2b62b64cfaa974200930e6e9e8f9",
+      "status": "archived,design validity preserved"
+    },
+    "r002": {
+      "digest": "3a87e269c8671c939ab2b92eeed2c132e875c98806be7747939ae628777ea5a1",
+      "status": "open for designs and challenges"
+    }
+  },
+  "review_status": "pre-release author-run rehearsal,scientific review pending"
+}

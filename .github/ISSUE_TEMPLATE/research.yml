@@ -1,0 +1,11 @@
+name: Research proposal or review
+description: Propose an algorithmic change, benchmark review, or reproducibility fix.
+title: "[Research] "
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Question, evidence, and bounded experiment
+      description: Include the round or frontier, baseline, budget, and acceptance criteria.
+    validations:
+      required: true

@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+vendor/
+build/
+.DS_Store
+
+# External inputs are fetched locally, never bundled in Git.
+/data/hanoi-original.inp
+/data/hanoi-design.inp
+/data/published-pareto.txt
+/research/exeter-pareto.html
+/research/sop-wdn.pdf
+/research/sop-wdn.txt

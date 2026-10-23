@@ -1,0 +1,11 @@
+{
+  "scope": "historical Hanoi diameter sizing, two explicitly separate tasks",
+  "reference": "reproduce published Table8 vector and nominal pressures before optimization",
+  "runs": "seeds419,503,719; each algorithm gets4000hydraulicdesign evaluations per task; each design evaluation checks all task scenarios",
+  "baseline": "published nominal layout; stress baseline repaired by greedy pressure-violation reduction then coordinate downsize; full setup evaluations counted separately",
+  "arms": "multistart feasible coordinate descent vs iterated multi-pipe perturbation and greedy repair/descent; equal evaluation budgets",
+  "acceptance": "each scenario minimum pressure>=30m,EPANET convergence without warnings, valid discrete catalog, independent WNTRSimulator check and flow/head residual audit",
+  "post_freeze": "20fixed random nodal demand multipliers in[1,1.2]; evaluate all retained designs after freeze; descriptive exposure,not universal robustness",
+  "limits": "no claimed published record; nominal/stress incomparable objectives; no wet-lab or infrastructure operation; all local simulation",
+  "stop": "one fixed round plus verifier corrections, no outcome-driven budget extension"
+}

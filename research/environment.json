@@ -1,0 +1,7 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python": "Python 3.12.11",
+  "wntr": "1.5.0",
+  "epanet": "2.2 library packaged with WNTR; exact binary hash in manifest",
+  "provenance": "preparing Codex author-run trial; no independent scientific review"
+}

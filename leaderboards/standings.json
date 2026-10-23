@@ -1,0 +1,55 @@
+{
+  "designs": [
+    {
+      "round": "r001",
+      "file": "rounds/r001/designs/baseline.json",
+      "cost": 7588555.757556816,
+      "claim": "verified for its own frozen scenario set"
+    },
+    {
+      "round": "r001",
+      "file": "rounds/r001/designs/cheaper.json",
+      "cost": 7530467.0018690135,
+      "claim": "verified for its own frozen scenario set"
+    },
+    {
+      "round": "r002",
+      "file": "rounds/r002/designs/control.json",
+      "cost": 7490876.732212818,
+      "claim": "verified for its own frozen scenario set"
+    },
+    {
+      "round": "r002",
+      "file": "rounds/r002/designs/design-1301.json",
+      "cost": 7478071.303860535,
+      "claim": "verified for its own frozen scenario set"
+    },
+    {
+      "round": "r002",
+      "file": "rounds/r002/designs/design-1453.json",
+      "cost": 7478071.303860535,
+      "claim": "verified for its own frozen scenario set"
+    }
+  ],
+  "challenges": [
+    {
+      "round": "r001",
+      "file": "rounds/r001/challenges/challenge-01.json",
+      "claim": "verified non-duplicate counterexample against registered target"
+    },
+    {
+      "round": "r001",
+      "file": "rounds/r001/challenges/challenge-02.json",
+      "claim": "verified non-duplicate counterexample against registered target"
+    },
+    {
+      "round": "r001",
+      "file": "rounds/r001/challenges/challenge-03.json",
+      "claim": "verified non-duplicate counterexample against registered target"
+    }
+  ],
+  "cross_round_ranking": false,
+  "combined_score": null,
+  "fresh_sample_evidence": "results/ticktock/fresh-evaluation.json",
+  "scientific_review": "pending"
+}
