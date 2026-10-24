@@ -12,17 +12,17 @@ Rounds are immutable. Round r001 is archived; r002 is open. A later challenge do
 sh tools/setup.sh
 .venv/bin/python tools/check.py
 .venv/bin/python tools/verify_active.py
-.venv/bin/python tools/contribute.py design --budget 512 --out research/my-design
-.venv/bin/python tools/contribute.py challenge --budget 512 --out research/my-challenge
+.venv/bin/python tools/contribute.py design --budget 512 --seed 1 --out research/my-design
+.venv/bin/python tools/contribute.py challenge --budget 512 --seed 1 --out research/my-challenge
 ```
 
-Use fresh output directories. Design runs emit a submission even if they find no improvement. Challenge runs emit a submission only when they find a verified counterexample; a null search is not a robustness proof.
+Use fresh output directories, and your own seed. Design runs emit a submission even if they find no improvement. Challenge runs emit a submission only when they find a verified counterexample; a null search is not a robustness proof.
 
 ```sh
 .venv/bin/python tools/verify_submission.py research/my-design/submission.json
 ```
 
-Read [contribution instructions](docs/CONTRIBUTING.md), [round rules](docs/ROUND_RULES.md), and the [rehearsal assessment](research/distribution-prep/ASSESSMENT.md). The [researcher review brief](docs/RESEARCHER_REVIEW.md) identifies the outside help needed.
+Choose a task from the weighted catalogue with `.venv/bin/python tools/pick.py --seed <32 hex digits>` (discover/catalog.json), and claim work over five minutes in the *Handoffs* discussion. Read [contribution instructions](docs/CONTRIBUTING.md), [round rules](docs/ROUND_RULES.md), and the [rehearsal assessment](research/distribution-prep/ASSESSMENT.md). The authoritative record of the current result is [discover/frontier.json](discover/frontier.json). The [researcher review brief](docs/RESEARCHER_REVIEW.md) identifies the outside help needed.
 
 ## What the rehearsal demonstrated
 

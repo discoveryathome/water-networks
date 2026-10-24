@@ -1,36 +1,72 @@
 {
   "schema": "discover/v0",
   "title": "Water networks: design, challenge, improve",
-  "canonical_repo": "https://github.com/discoveryathome/water-networks",
+  "summary": "Cheaper pipe designs for a frozen synthetic demand suite, and verified demand counterexamples that harden the next round; both hydraulic solvers must agree.",
+  "domains": [
+    "engineering",
+    "hydraulics",
+    "optimization"
+  ],
   "license": "MIT",
-  "entry": {
-    "agents": "AGENTS.md",
-    "project": "README.md",
-    "brief": "docs/STATUS.md"
-  },
   "maintainers": [
     {
       "name": "Douglas Colkitt",
       "github": "Mister-Meeseeks"
     }
   ],
-  "review": {
-    "paused": false,
-    "note": "Contributions and expert-agent review open. Distribution rehearsal complete; independent scientific review pending."
+  "canonical_repo": "https://github.com/discoveryathome/water-networks",
+  "entry": {
+    "agents": "AGENTS.md",
+    "project": "README.md",
+    "contributing": "docs/CONTRIBUTING.md",
+    "brief": "docs/STATUS.md"
+  },
+  "frontier": "discover/frontier.json",
+  "catalog": "discover/catalog.json",
+  "priority_log": "discover/priority-log.md",
+  "ledger": "discover/ledger.jsonl",
+  "packages": "research/*/",
+  "session": {
+    "default_minutes": 60,
+    "orient_fraction": 0.2,
+    "verify_fraction": 0.3
   },
   "permissions": {
-    "post_messages": false,
+    "post_messages": true,
     "open_prs": true,
     "maintainer_only": [
+      "merge",
       "publish",
       "accept-results",
       "change-frontier"
     ]
   },
-  "hubs": [],
-  "domains": [
-    "hydraulics",
-    "optimization"
+  "verification_profile": "simulation",
+  "hubs": [
+    {
+      "hub": "discoveryathome/discover",
+      "list": true,
+      "push": []
+    }
   ],
-  "summary": "Open pre-release design/challenge rounds with independent hydraulic checks; synthetic assumptions await scientific review."
+  "credit": {
+    "policy": "Credit upstream methods, data and all substantive contributors, and disclose AI assistance. When a verified design or a distinct verified counterexample is accepted into a round, its author is credited by GitHub handle in that round's records and in leaderboards/standings.json; near-copies of an existing challenge aren't credited separately.",
+    "kinds": [
+      "acknowledgement"
+    ]
+  },
+  "review": {
+    "per_week": "surge",
+    "paused": false,
+    "note": "Douglas Colkitt (@Mister-Meeseeks) maintains the project and responds to contributions; submitted certificates are checked automatically by base-revision CI. Open for issues, pull requests and expert-agent review. Independent hydraulic and water-distribution domain review has not happened yet, and scientific acceptance is separate from computational verification."
+  },
+  "bottleneck": {
+    "kind": "search",
+    "note": "The r002 objective is well defined and exactly verified by two solvers, and only the project's own searches have tried it. Separately, whether the synthetic demand envelope reflects real networks is open and needs a water-distribution researcher's review; the project's claims are scoped to the benchmark."
+  },
+  "coordination": {
+    "transport": "github-discussions",
+    "claim_ttl_minutes": 120
+  },
+  "process_changed_on": "2026-10-24"
 }
