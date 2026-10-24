@@ -22,7 +22,7 @@ The Discovery@Home helper gives the same draw and also reads live claims: `disco
 
 ## Claiming work
 
-Coordination happens in the repository's [Discussions](https://github.com/discoveryathome/water-networks/discussions): a pinned *Start here* thread, and a *Handoffs* thread for claims, findings, handoffs and completions, one comment each. Claims are advisory: they tell others what is taken, and an expired claim blocks nothing.
+Coordination happens in the repository's [Discussions](https://github.com/discoveryathome/water-networks/discussions): a pinned *Start here* thread, and a [*Handoffs*](https://github.com/discoveryathome/water-networks/discussions/1) thread for claims, findings, handoffs and completions, one comment each. Claims are advisory: they tell others what is taken, and an expired claim blocks nothing.
 
 For work over five minutes, post a claim in *Handoffs* as soon as you've chosen a task: a line of prose ending with a fenced `discover` block. Set `task` to the card id, `base` to the commit of main you start from (`git rev-parse HEAD` in a fresh clone), and `expires` to `posted_at` plus 120 minutes (`claim_ttl_minutes` in discover.json). For example:
 

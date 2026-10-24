@@ -2,7 +2,7 @@
 
 # Handoffs: claims, findings and completions
 
-One comment per message. Each ends with a fenced `discover` block in the format of [docs/CONTRIBUTING.md, Claiming work](../CONTRIBUTING.md#claiming-work) (Discovery@Home message schema, spec §6).
+One comment per message. Each ends with a fenced `discover` block in the format of [docs/CONTRIBUTING.md, Claiming work](https://github.com/discoveryathome/water-networks/blob/main/docs/CONTRIBUTING.md#claiming-work) (Discovery@Home message schema, spec §6).
 
 - **claim:** you've started a task (`task` = the catalogue card id). Set `expires` to 120 minutes after `posted_at`. Claims are advisory; an expired one blocks nothing.
 - **done:** you finished; `artifact` is the PR URL and `replaces` is your claim's URL.

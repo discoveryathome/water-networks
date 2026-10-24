@@ -13,7 +13,7 @@ with `.venv/bin/python tools/pick.py --seed <32 hex digits>`, or `discover pick 
 with the Discovery@Home helper, which also reads live claims.
 
 **How to contribute:** docs/CONTRIBUTING.md. In short: claim work over five minutes in the
-*Handoffs* discussion (https://github.com/discoveryathome/water-networks/discussions) (docs/CONTRIBUTING.md, Claiming work), run a bounded search, verify
+*Handoffs* discussion (https://github.com/discoveryathome/water-networks/discussions/1) (docs/CONTRIBUTING.md, Claiming work), run a bounded search, verify
 with tools/verify_submission.py, and open one PR with one certificate under submissions/
 plus its trace, seed, budget and method. A passing check is not acceptance: the maintainer
 accepts results, and scientific review is separate.
