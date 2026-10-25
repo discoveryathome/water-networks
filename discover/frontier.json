@@ -1,0 +1,115 @@
+{
+  "schema": "discover-frontier/v0",
+  "statement": "Round r002: the cheapest registered design (rounds/r002/designs/design-1301.json, matched by design-1453) costs 7,478,071.30 benchmark cost units and keeps every junction at or above 30 m pressure in all seven frozen r002 demand scenarios, under both EPANET 2.2 and the separate WNTR solver. The seven scenarios are r001's four plus three verified demand counterexamples found against r001's cheaper design.",
+  "status": "Open for designs and challenges on r002; author-checked. Independent hydraulic and domain review is pending.",
+  "evidence_level": [
+    "author-checked"
+  ],
+  "claim_kind": [
+    "model"
+  ],
+  "scope": "A synthetic benchmark on the historical Hanoi network (31 demand junctions, 34 pipes, one fixed-head reservoir, six catalogue diameters), demand-driven steady-state hydraulics, WNTR 1.5.0 and its bundled EPANET 2.2. Feasibility holds only for r002's frozen scenarios. The demand envelope (each junction multiplier in [1.0, 1.2], demand-weighted total at most 1.105) is a declared synthetic assumption, not a calibrated forecast. No worst-case robustness, real-network or optimizer-superiority claim. Not comparable with the nominal-only published Hanoi optimum (6,081,127.54 under this cost formula), which answers a different formulation.",
+  "metric": {
+    "name": "r002 design cost",
+    "value": "7478071.303860535",
+    "decimal": "7,478,071.30",
+    "direction": "lower-is-better",
+    "unit": "benchmark cost units"
+  },
+  "formulation": {
+    "id": "hanoi-r002",
+    "doc": "docs/ROUND_RULES.md",
+    "since": "2026-10-23",
+    "replaces": "hanoi-r001"
+  },
+  "measures": [
+    {
+      "name": "minimum junction pressure, every frozen scenario, both solvers",
+      "role": "constraint",
+      "statement": "A design is valid only if EPANET and WNTR both keep every junction at or above 30 m in every scenario of its round, with residual and convergence checks passing. Enforced by the verifier.",
+      "limit": "30",
+      "unit": "m",
+      "status": "pass",
+      "command": [
+        ".venv/bin/python",
+        "tools/verify_active.py"
+      ]
+    },
+    {
+      "name": "pressure coverage on fresh demand samples inside the envelope",
+      "role": "target",
+      "statement": "What the frozen scenarios stand in for: whether a design keeps 30 m on demand vectors it wasn't designed against. The 128 samples used here are now exposed and can't serve as an unseen test again.",
+      "value": "128/128",
+      "baseline": "125/128 (r001 cheaper design)",
+      "source": "results/ticktock/fresh-evaluation.json",
+      "note": "One author-run sample of 128; sampling evidence, not a worst-case guarantee.",
+      "status": "better"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "demand-envelope",
+      "statement": "The per-junction [1.0, 1.2] multipliers and the 1.105 weighted-total cap are a useful uncertainty model for this benchmark.",
+      "status": "open",
+      "link": "docs/RESEARCHER_REVIEW.md"
+    },
+    {
+      "id": "hydraulics",
+      "statement": "The 30 m requirement, demand-driven formulation, fixed-head supply, units and solver residual thresholds match the intended benchmark comparison.",
+      "status": "open",
+      "link": "docs/RESEARCHER_REVIEW.md"
+    },
+    {
+      "id": "baselines",
+      "statement": "Only the project's own greedy and perturb-repair searches have been run on r002; strong published optimizers haven't been compared under matched budgets.",
+      "status": "open",
+      "link": "research/ASSESSMENT.md"
+    },
+    {
+      "id": "input-terms",
+      "statement": "Redistribution terms of the historical Hanoi inputs are under review; they are fetched from their hosts, not bundled.",
+      "status": "open",
+      "link": "THIRD-PARTY.md"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "rounds/index.json",
+      "sha256": "6177a45acf100667ff658eece842c060685b15e74d4bb39205945a51ea47672e",
+      "role": "current round"
+    },
+    {
+      "path": "rounds/r002/round.json",
+      "sha256": "a7f15edecd14027c7b701eb995d95ec2c62055b00b8b81f700eda180a885902b",
+      "role": "frozen r002 scenarios"
+    },
+    {
+      "path": "rounds/r002/designs/design-1301.json",
+      "sha256": "874c1b3f73bc0c51244c60909c3e6688c86125e5e33266c795263a8038e8cd70",
+      "role": "current best design"
+    },
+    {
+      "path": "leaderboards/standings.json",
+      "sha256": "a9b3a531fae8d131ec17856301831f3ecc2fbf91e6ba3b5b71405cb5bb98f83e",
+      "role": "round-specific standings"
+    },
+    {
+      "path": "results/ticktock/fresh-evaluation.json",
+      "sha256": "82b9e6e904050ae6ae60249cfb7de0f9abd67e249bbf8abb732d08b37a0c5cfb",
+      "role": "fresh-sample target measure"
+    }
+  ],
+  "sources": [
+    "f00bf1df2cd2b8c6dff29812e20976e9e26ec9df",
+    "research/distribution-prep/ASSESSMENT.md"
+  ],
+  "reproduce": ".venv/bin/python tools/verify_active.py",
+  "reproduce_full": ".venv/bin/python tools/check.py && .venv/bin/python tools/verify_active.py",
+  "reproduce_minutes": 1,
+  "prerequisites": [
+    "Python 3.12 and uv",
+    "sh tools/setup.sh (installs pinned WNTR 1.5.0 and fetches the Hanoi input, checked by hash; about a minute)"
+  ],
+  "review": "docs/RESEARCHER_REVIEW.md",
+  "updated_on": "2026-10-24"
+}

@@ -1,0 +1,176 @@
+{
+  "schema": "discover-catalog/v0",
+  "priority_revision": 1,
+  "assessed_on": "2026-10-24",
+  "priority_log": "discover/priority-log.md",
+  "status": "Round r002 open for designs and challenges; author-checked; independent hydraulic and domain review pending.",
+  "tracks": [
+    {
+      "id": "design",
+      "weight": 35,
+      "useful_outcome": "A cheaper r002 design that both solvers confirm on every frozen scenario, or a bounded null result with its full trace.",
+      "tasks": [
+        {
+          "id": "design-search",
+          "question": "Find an r002 design cheaper than 7,478,071.30 that meets 30 m in all seven frozen scenarios under both EPANET and WNTR.",
+          "starting_points": ["README.md", "docs/ROUND_RULES.md", "rounds/r002/round.json", "rounds/r002/designs/design-1301.json", "src/search.py"],
+          "methods": ["perturb-repair from the current best with a new seed and a larger budget", "multistart descent from varied feasible designs", "a different local move set (pipe swaps along a path, paired up/down changes)"],
+          "acceptance_gate": "One design certificate under submissions/ that passes tools/verify_submission.py for r002 with cost below 7,478,071.30, plus the full trace, seed, evaluation budget and method. A run that doesn't beat it is still a complete outcome: report the best cost and the trace.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/contribute.py", "design", "--budget", "64", "--seed", "1", "--out", "research/first-step-design"],
+            "expected": "A JSON report with \"verified\": true, \"type\": \"design\", \"improved_cost\": false and cost 7478071.303860535 (64 evaluations don't beat the current best). Run sh tools/setup.sh first; --out must be a new folder.",
+            "scope": "Positive control only; don't submit it."
+          },
+          "first_experiment": ".venv/bin/python tools/contribute.py design --budget 4000 --seed <your seed> --out research/<session>/design",
+          "bottleneck_link": "docs/CONTRIBUTING.md",
+          "contributes": "record",
+          "claim_kind": ["model"],
+          "allowed_variations": ["Any search method, if it uses the unchanged verifier and reports every evaluated design."],
+          "scope_change_triggers": ["Changing the scenarios, cost formula, catalogue or pressure requirement is a new round, not a design: propose it in the challenge or envelope tracks."],
+          "overlap_terms": ["r002", "design", "cost", "perturb-repair", "pipe diameters"]
+        },
+        {
+          "id": "design-budget-curve",
+          "question": "How does the best r002 cost found depend on the evaluation budget and seed for the existing perturb-repair search?",
+          "starting_points": ["tools/contribute.py", "src/search.py", "research/distribution-prep/ASSESSMENT.md"],
+          "methods": ["budgets 512, 2000, 8000 at five seeds each", "compare perturb-repair with multistart descent at equal budgets"],
+          "acceptance_gate": "A research/<session>/ folder with every run's report and trace, a table of best cost by budget and seed, and the commands to rerun it. Any cheaper verified design also goes in as a design certificate.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/contribute.py", "design", "--budget", "64", "--seed", "1", "--out", "research/first-step-design"],
+            "expected": "A JSON report with \"verified\": true and cost 7478071.303860535. Run sh tools/setup.sh first; --out must be a new folder."
+          },
+          "bottleneck_link": "research/distribution-prep/ASSESSMENT.md",
+          "contributes": "evidence",
+          "claim_kind": ["model"],
+          "overlap_terms": ["budget", "seeds", "search comparison", "r002"]
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "weight": 25,
+      "useful_outcome": "A verified, distinct demand counterexample against the cheapest r002 design, which can enter the next round's scenarios.",
+      "tasks": [
+        {
+          "id": "challenge-r002",
+          "question": "Find a demand vector inside the r002 envelope that drops design-1301 below 30 m by at least 0.005 m under both solvers, and is at least 0.02 from every existing scenario and challenge.",
+          "starting_points": ["docs/ROUND_RULES.md", "rounds/r002/round.json", "rounds/r001/challenges/", "tools/contribute.py"],
+          "methods": ["random sampling inside the envelope with a new seed and a larger budget", "gradient-free local search on the multipliers from the worst sampled vector", "targeted search on junctions with the least pressure margin"],
+          "acceptance_gate": "One challenge certificate under submissions/ that passes tools/verify_submission.py for r002, plus the trace, seed and budget. A search that finds nothing is a complete outcome too, but it isn't a robustness proof: report it as a bounded null result.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/contribute.py", "challenge", "--round", "r001", "--budget", "512", "--seed", "77173", "--out", "research/first-step-challenge"],
+            "expected": "A JSON report with \"verified\": true, \"found\": true and a confirmed shortfall of about 0.57 m against r001's cheaper design, in about 20 seconds. This reproduces how r001's challenges were found. Run sh tools/setup.sh first; --out must be a new folder.",
+            "scope": "Positive control on the archived round; don't submit it."
+          },
+          "first_experiment": ".venv/bin/python tools/contribute.py challenge --budget 4000 --seed <your seed> --out research/<session>/challenge",
+          "bottleneck_link": "docs/ROUND_RULES.md",
+          "contributes": "benchmark",
+          "claim_kind": ["model"],
+          "allowed_variations": ["Any search over multipliers inside the declared envelope; the envelope itself is fixed for r002."],
+          "scope_change_triggers": ["A vector outside the envelope, or a different pressure requirement, is a proposal for the envelope track, not a challenge."],
+          "overlap_terms": ["r002", "challenge", "counterexample", "demand vector", "design-1301"]
+        }
+      ]
+    },
+    {
+      "id": "audit",
+      "weight": 20,
+      "focus": ["audit"],
+      "useful_outcome": "An independent check of the registered certificates and the hydraulic model, with findings stated as evidence.",
+      "tasks": [
+        {
+          "id": "reproduce-rounds",
+          "question": "From a fresh clone, do all eight registered certificates and the 103 evidence hashes verify, and do both solvers agree as recorded?",
+          "starting_points": ["README.md", "docs/STATUS.md", "tools/check.py", "tools/verify_active.py"],
+          "methods": ["fresh clone on another OS or architecture", "fresh clone in the Dockerfile's container"],
+          "acceptance_gate": "A research/<session>/ report with the commands, platform, versions, timings and full output. Any mismatch is a finding: post it with the exact file and value.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/verify_active.py"],
+            "expected": "JSON with \"verified\": true and \"registered_certificates\": 8, in about 25 seconds. Run sh tools/setup.sh first."
+          },
+          "bottleneck_link": "docs/STATUS.md",
+          "contributes": "evidence",
+          "claim_kind": ["model"],
+          "existing_checks": [
+            {"scope": "Ubuntu 24.04 CI: 21 tests and 8 certificates", "evidence": "https://github.com/discoveryathome/water-networks/actions/runs/39957698093", "status": "author-run CI", "source_commit": "f00bf1df2cd2b8c6dff29812e20976e9e26ec9df"},
+            {"scope": "Fresh macOS arm64 clone: setup, check.py and verify_active.py", "evidence": "research/distribution-prep/clean-install.json", "status": "author-checked", "remaining": "Another person's machine, Windows, and an x86_64 Mac."}
+          ],
+          "overlap_terms": ["reproduce", "fresh clone", "verify_active", "platform"]
+        },
+        {
+          "id": "hydraulics-review",
+          "question": "Are the units, the 30 m requirement, the demand-driven formulation, the fixed-head supply and the solver residual thresholds right for this benchmark?",
+          "starting_points": ["docs/RESEARCHER_REVIEW.md", "src/model.py", "research/ASSESSMENT.md", "data/problem.json"],
+          "methods": ["read src/model.py against the EPANET and WNTR documentation", "recompute one scenario by hand or with another solver and compare pressures"],
+          "acceptance_gate": "A written review in research/<session>/REVIEW.md: each item checked, what was found, and evidence for every claim of an error. Review only; don't change the model or the verifier in the same PR.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/verify_submission.py", "rounds/r002/designs/design-1301.json"],
+            "expected": "JSON with \"verified\": true and seven scenario checks whose solver_difference_m values are all under 0.001."
+          },
+          "bottleneck_link": "docs/RESEARCHER_REVIEW.md",
+          "contributes": "evidence",
+          "overlap_terms": ["units", "tolerance", "residual", "EPANET", "WNTR", "pressure requirement"]
+        }
+      ]
+    },
+    {
+      "id": "baselines",
+      "weight": 10,
+      "useful_outcome": "A strong published optimizer run on r002 under a stated budget, so the project's own search has a real comparison.",
+      "tasks": [
+        {
+          "id": "published-optimizer",
+          "question": "What does a strong published water-network design method (for example a genetic algorithm or differential evolution variant from the Hanoi literature) reach on r002's seven scenarios at a matched evaluation budget?",
+          "starting_points": ["research/ASSESSMENT.md", "research/sources.json", "src/search.py", "docs/RESEARCHER_REVIEW.md"],
+          "methods": ["implement the method from its paper with its own published settings", "use an openly licensed implementation, pinned by commit"],
+          "acceptance_gate": "A research/<session>/ folder with the method's source or citation and license, settings, evaluations counted the same way as src/search.py, every run's best design and its tools/verify_submission.py output. A cheaper verified design also goes in as a design certificate.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/check.py"],
+            "expected": "\"21 passed\" and \"Verified 103 frozen evidence hashes; tests passed.\", in about 25 seconds. Run sh tools/setup.sh first."
+          },
+          "bottleneck_link": "research/ASSESSMENT.md",
+          "contributes": "evidence",
+          "claim_kind": ["model"],
+          "scope_change_triggers": ["Code under a license that doesn't allow use here: cite it and reimplement, or stop and report."],
+          "overlap_terms": ["genetic algorithm", "differential evolution", "published optimizer", "matched budget", "baseline"]
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "weight": 10,
+      "focus": ["reframe"],
+      "useful_outcome": "A better-founded demand uncertainty model or duplicate screen, proposed as a new round with its costs.",
+      "tasks": [
+        {
+          "id": "diversity-screen",
+          "question": "Does the 0.02 maximum-difference screen admit challenges that expose the same underlying failure, and what screen would separate genuinely different ones?",
+          "starting_points": ["docs/ROUND_RULES.md", "rounds/r001/challenges/", "src/rounds.py"],
+          "methods": ["cluster verified counterexamples by which junctions fail", "compare the screen's verdicts with a pressure-deficit pattern"],
+          "acceptance_gate": "A research/<session>/ note with the analysis, the data behind it and a proposed screen with its tradeoffs. A proposal, not a change to src/rounds.py in the same PR.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/verify_submission.py", "rounds/r001/challenges/challenge-01.json"],
+            "expected": "JSON with \"verified\": true, confirmed_shortfall_m about 0.605 and nearest_scenario_linf about 0.098."
+          },
+          "bottleneck_link": "docs/ROUND_RULES.md",
+          "contributes": "benchmark",
+          "overlap_terms": ["duplicate screen", "diversity", "novelty", "counterexample clustering"]
+        },
+        {
+          "id": "demand-model",
+          "question": "Is there a documented, citable demand uncertainty model for Hanoi-style benchmarks that should replace the [1.0, 1.2] multipliers and the 1.105 cap in a future round?",
+          "starting_points": ["docs/RESEARCHER_REVIEW.md", "docs/ROUND_RULES.md", "research/ASSESSMENT.md"],
+          "methods": ["literature survey of robust water-network design benchmarks", "sensitivity of design-1301's coverage to the cap"],
+          "acceptance_gate": "A research/<session>/ note citing each source, the proposed model, and what it would change (which current designs and challenges stay valid). Proposals become a new round only by maintainer review.",
+          "first_step": {
+            "command": [".venv/bin/python", "tools/verify_active.py"],
+            "expected": "JSON with \"verified\": true and \"registered_certificates\": 8."
+          },
+          "bottleneck_link": "docs/RESEARCHER_REVIEW.md",
+          "contributes": "benchmark",
+          "overlap_terms": ["demand uncertainty", "envelope", "robust design", "literature"]
+        }
+      ]
+    }
+  ]
+}
